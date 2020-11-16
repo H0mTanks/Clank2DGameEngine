@@ -1,6 +1,7 @@
 #include <iostream>
 #include "config.hpp"
 #include "game.hpp"
+#include <cmath>
 
 int main(int argc, char *argv[]) {
   Game *game = new Game();

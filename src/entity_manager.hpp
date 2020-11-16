@@ -15,6 +15,7 @@ public:
   void update(float delta_time);
   void render();
   bool check_no_entities();
+  void list_all_entities();
   Entity& add_entity(std::string name);
   std::vector<Entity*> get_entities() const;
   unsigned int get_entity_count() const;

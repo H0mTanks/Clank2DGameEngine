@@ -2,9 +2,11 @@
 #include "config.hpp"
 #include "game.hpp"
 #include "./components/transform_components.hpp"
+#include "./components/sprite_component.hpp"
 #include "../lib/glm/glm.hpp"
 
 Entity_manager manager;
+Asset_manager* Game::asset_manager = new Asset_manager(&manager);
 SDL_Renderer* Game::renderer;
 
 
@@ -97,9 +99,19 @@ void Game::update() {
 
 
 void Game::load_level(int level_number) {
-  Entity& new_entity(manager.add_entity("projectile"));
+  asset_manager->add_texture("tank-image", std::string("./assets/images/tank-big-right.png").c_str());
+  asset_manager->add_texture("chopper-image", std::string("./assets/images/chopper-spritesheet.png").c_str());
 
-  new_entity.add_component<Transform_component>(0, 0, 20, 20, 32, 32, 1);
+  Entity& tank_entity(manager.add_entity("tank"));
+  tank_entity.add_component<Transform_component>(0, 0, 20, 20, 32, 32, 1);
+  tank_entity.add_component<Sprite_component>("tank-image");
+  // std::cout << tank.has_component<Sprite_component>() << '\n';
+
+  Entity& chopper_entity(manager.add_entity("chopper"));
+  chopper_entity.add_component<Transform_component>(240, 106, 0, 0, 32, 32, 1);
+  chopper_entity.add_component<Sprite_component>("chopper-image", 2, 90, true, false);
+
+  manager.list_all_entities();
 }
 
 
@@ -113,6 +125,17 @@ void Game::render() {
 
   manager.render();
   SDL_RenderPresent(renderer);
+  //debug code for pausing at first frame, use ESC to quit
+  // while (true) {
+  //   SDL_Event event;
+  //   SDL_PollEvent(&event);
+  //   if (event.type == SDL_KEYDOWN) {
+  //     if (event.key.keysym.sym == SDLK_ESCAPE) {
+  //       running = false;
+  //       return;
+  //     }
+  //   }
+  // }
 }
 
 

@@ -8,12 +8,14 @@
 #include "component.hpp"
 #include "entity_manager.hpp"
 
+class Asset_manager;
 
 class Game {
 private:
   bool running; //holds true if game running
   SDL_Window* window;
 public:
+  static Asset_manager* asset_manager;
   static SDL_Renderer* renderer;
   Game();
   virtual ~Game();

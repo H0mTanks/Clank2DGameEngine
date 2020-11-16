@@ -1,8 +1,15 @@
 #include "entity.hpp"
+#include <iostream>
 
 Entity::Entity(Entity_manager& manager): manager(manager), active(true) {}
 
 Entity::Entity(Entity_manager& manager, std::string name): manager(manager), active(true), name(name) {}
+
+void Entity::list_all_components() {
+  for (auto& component : components) {
+    std::cout << component->name << '\n';
+  }
+}
 
 void Entity::update(float delta_time) {
   for (auto& component: components) {

@@ -1,3 +1,4 @@
+#include <iostream>
 #include "entity_manager.hpp"
 
 void Entity_manager::clear() {
@@ -8,6 +9,13 @@ void Entity_manager::clear() {
 
 bool Entity_manager::check_no_entities() {
   return entities.size() == 0;
+}
+
+void Entity_manager::list_all_entities() {
+  for (auto& entity : entities) {
+    std::cout << entity->name << '\n';
+    entity->list_all_components();
+  }
 }
 
 void Entity_manager::update(float delta_time) {
