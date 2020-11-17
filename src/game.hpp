@@ -17,6 +17,7 @@ private:
 public:
   static Asset_manager* asset_manager;
   static SDL_Renderer* renderer;
+  static SDL_Event event;
   Game();
   virtual ~Game();
   unsigned int old_frameticks{SDL_GetTicks()};
