@@ -67,8 +67,8 @@ void Sprite_component::update(float delta_time) {
   }
   source_rect.y = animation_index * transform->height;
 
-  dest_rect.x = static_cast<int>(transform->position.x);
-  dest_rect.y = static_cast<int>(transform->position.y);
+  dest_rect.x = static_cast<int>(transform->position.x) - (fixed ? 0 : Game::camera.x);
+  dest_rect.y = static_cast<int>(transform->position.y) - (fixed ? 0 : Game::camera.y);
   dest_rect.w = transform->width * transform->scale;
   dest_rect.h = transform->height * transform->scale;
 }

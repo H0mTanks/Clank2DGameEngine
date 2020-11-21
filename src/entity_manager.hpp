@@ -16,7 +16,8 @@ public:
   void render();
   bool check_no_entities();
   void list_all_entities();
-  Entity& add_entity(std::string name);
+  Entity& add_entity(std::string name, Layer_type layer);
+  std::vector<Entity*> get_entities_by_layer(Layer_type layer) const;
   std::vector<Entity*> get_entities() const;
   unsigned int get_entity_count() const;
 };

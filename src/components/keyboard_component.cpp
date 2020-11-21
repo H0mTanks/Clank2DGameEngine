@@ -31,42 +31,47 @@ void Keyboard_component::update(float delta_time) {
     std::string key_code = std::to_string(Game::event.key.keysym.sym);
 
     if (key_code.compare(up_key) == 0) {
-      if (transform->position.y > 0) {
+      if (transform->position.y - Game::camera.y > 0) {
         transform->velocity.y = -vel_change;
         transform->velocity.x = 0;
       }
       else {
-        transform->position.y = 0;
+        transform->velocity.y = 0;
+        transform->velocity.x = 0;
       }
       sprite->play("up_animation");
     }
     if (key_code.compare(down_key) == 0) {
-      if (transform->position.y < WINDOW_HEIGHT - transform->height) {
+      if (transform->position.y - Game::camera.y < WINDOW_HEIGHT - transform->height) {
         transform->velocity.y = vel_change;
         transform->velocity.x = 0;
       }
       else {
-        transform->position.y = WINDOW_HEIGHT - transform->height;
+        transform->velocity.y = 0;
+        transform->velocity.x = 0;
       }
       sprite->play("down_animation");
     }
     if (key_code.compare(left_key) == 0) {
-      if (transform->position.x > 0) {
+      if (transform->position.x - Game::camera.x > 0) {
         transform->velocity.y = 0;
         transform->velocity.x = -vel_change;
       }
       else {
-        transform->position.x = 0;
+        transform->velocity.x = 0;
+        transform->velocity.y = 0;
+
       }
       sprite->play("left_animation");
     }
     if (key_code.compare(right_key) == 0) {
-      if (transform->position.x < WINDOW_WIDTH - transform->width) {
+      if (transform->position.x - Game::camera.x < WINDOW_WIDTH - transform->width) {
         transform->velocity.y = 0;
         transform->velocity.x = vel_change;
       }
       else {
-        transform->position.x = WINDOW_WIDTH - transform->width;
+        transform->velocity.x = 0;
+        transform->velocity.y = 0;
       }
       sprite->play("right_animation");
     }

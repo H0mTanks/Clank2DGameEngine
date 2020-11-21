@@ -3,7 +3,7 @@
 
 Entity::Entity(Entity_manager& manager): manager(manager), active(true) {}
 
-Entity::Entity(Entity_manager& manager, std::string name): manager(manager), active(true), name(name) {}
+Entity::Entity(Entity_manager& manager, std::string name, Layer_type layer): manager(manager), active(true), name(name), layer(layer) {}
 
 void Entity::list_all_components() {
   for (auto& component : components) {

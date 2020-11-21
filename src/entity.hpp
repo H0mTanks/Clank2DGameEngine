@@ -4,6 +4,7 @@
 #include <vector>
 #include <string>
 #include <map>
+#include "config.hpp"
 #include "component.hpp"
 #include "entity_manager.hpp"
 
@@ -18,8 +19,9 @@ private:
   std::map<const std::type_info*, Component*> component_type_map;
 public:
   std::string name;
+  Layer_type layer;
   Entity(Entity_manager& manager);
-  Entity(Entity_manager& manager, std::string name);
+  Entity(Entity_manager& manager, std::string name, Layer_type layer);
   void list_all_components();
   void update(float delta_time);
   void render();

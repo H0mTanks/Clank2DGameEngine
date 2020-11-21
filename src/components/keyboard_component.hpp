@@ -13,7 +13,7 @@ public:
   std::string left_key;
   std::string right_key;
   std::string shoot_key;
-  int vel_change = 200;
+  int vel_change = 50;
   Transform_component* transform;
   Sprite_component* sprite;
   Keyboard_component();

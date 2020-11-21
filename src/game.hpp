@@ -18,6 +18,7 @@ public:
   static Asset_manager* asset_manager;
   static SDL_Renderer* renderer;
   static SDL_Event event;
+  static SDL_Rect camera;
   Game();
   virtual ~Game();
   unsigned int old_frameticks{SDL_GetTicks()};
@@ -27,6 +28,7 @@ public:
   void process_input();
   void update();
   void render();
+  void camera_movement();
   void destruct();
 };
 

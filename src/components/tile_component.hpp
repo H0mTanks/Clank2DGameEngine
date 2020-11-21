@@ -12,7 +12,7 @@ public:
   SDL_Rect dest_rect;
   glm::vec2 position;
 
-  Tile_component(int source_x, int source_y, int x, int y, int tile_size, int tile_scale, int asset_texture_id);
+  Tile_component(int source_x, int source_y, int x, int y, int tile_size, int tile_scale, std::string asset_texture_id);
   ~Tile_component();
   void update(float delta_time) override;
   void render() override;
