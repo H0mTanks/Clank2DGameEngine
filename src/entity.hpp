@@ -44,8 +44,8 @@ public:
   }
 
   template <typename T>
-  bool has_component() {
-    return component_type_map[&typeid(T)];
+  bool has_component() const {
+    return component_type_map.count(&typeid(T));
   }
 };
 

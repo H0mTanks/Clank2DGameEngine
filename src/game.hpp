@@ -30,6 +30,9 @@ public:
   void render();
   void camera_movement();
   void destruct();
+  void check_collide();
+  void next_level(int level_number);
+  void game_over();
 };
 
 #endif

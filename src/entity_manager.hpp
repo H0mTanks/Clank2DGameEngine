@@ -16,6 +16,8 @@ public:
   void render();
   bool check_no_entities();
   void list_all_entities();
+  void destroy_inactive_entities();
+  Collide_type check_entity_collide() const;
   Entity& add_entity(std::string name, Layer_type layer);
   std::vector<Entity*> get_entities_by_layer(Layer_type layer) const;
   std::vector<Entity*> get_entities() const;

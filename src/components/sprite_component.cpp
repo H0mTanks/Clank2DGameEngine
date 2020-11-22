@@ -1,10 +1,10 @@
 #include "sprite_component.hpp"
 
-Sprite_component::Sprite_component(const char* filename) {
+Sprite_component::Sprite_component(std::string asset_texture_id) {
   name = "Sprite_component";
   animated = false;
   fixed = false;
-  set_texture(filename);
+  set_texture(asset_texture_id);
 }
 
 Sprite_component::Sprite_component(std::string animation_id, int num_frames, int animation_speed,

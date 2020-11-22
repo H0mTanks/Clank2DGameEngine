@@ -23,7 +23,7 @@ private:
 
 public:
   SDL_RendererFlip sprite_flip = SDL_FLIP_NONE;
-  Sprite_component(const char* filename);
+  Sprite_component(std::string asset_texture_id);
   Sprite_component(std::string animation_id, int num_frames, int animation_speed,
     bool direction, bool fixed);
   void play(std::string animation_name);
