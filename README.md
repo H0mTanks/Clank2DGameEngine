@@ -1,6 +1,9 @@
 # Clank---2DGameEngine
 Clank is a WIP 2D Game Engine written in C++ and using SDL2 and OpenGL Math Libraries.
 
+
+The gif preview below may be choppy during loading because of it's filesize
+
 ![](https://github.com/H0mTanks/gifs/blob/main/2021-05-24%2020-13-29_1.gif)
 
 
